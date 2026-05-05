@@ -7,6 +7,7 @@ namespace kundalikeslatmalar {
 	using namespace System::Collections;
 	using namespace System::Windows::Forms;
 	using namespace System::Data;
+	using namespace System::Data::SqlClient;
 	using namespace System::Drawing;
 
 	/// <summary>
@@ -183,9 +184,37 @@ namespace kundalikeslatmalar {
 		}
 #pragma endregion
 	private: System::Void button1_Click(System::Object^ sender, System::EventArgs^ e) {
-		Login^ form2 = gcnew Login(this);
-		this->Hide();
-		form2->ShowDialog();
+		// 1. Manzilni to'g'ri yozamiz (ikkitalik slesh bilan!)
+		String^ dbPath = L"C:\\Users\\ibroh\\source\\repos\\kundalik eslatmalar\\kundalik eslatmalar\\database.mdf";
+		String^ connString = L"Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=\"" + dbPath + "\";Initial Catalog=LoyihaDB;Integrated Security=True;Connect Timeout=30";
+
+		try {
+			SqlConnection^ sqlConn = gcnew SqlConnection(connString);
+
+			// Login va Parolni tekshirish (textBox1 va textBox2 dan)
+			String^ sqlQuery = "SELECT COUNT(*) FROM Foydalanuvchilar WHERE Login=@user AND Password=@pass";
+			SqlCommand^ command = gcnew SqlCommand(sqlQuery, sqlConn);
+
+			command->Parameters->AddWithValue("@user", this->textBox1->Text);
+			command->Parameters->AddWithValue("@pass", this->textBox2->Text);
+
+			sqlConn->Open();
+			int count = (int)command->ExecuteScalar();
+			sqlConn->Close();
+
+			if (count > 0) {
+				// Agar login to'g'ri bo'lsa, Dashboardni ochish
+				Dashboard^ dash = gcnew Dashboard(); // Dashboard klassi Dashboard.h da bo'lishi kerak
+				this->Hide();
+				dash->Show();
+			}
+			else {
+				MessageBox::Show(L"Login yoki parol xato!", L"Xatolik", MessageBoxButtons::OK, MessageBoxIcon::Error);
+			}
+		}
+		catch (Exception^ ex) {
+			MessageBox::Show(L"Xatolik: " + ex->Message);
+		}
 	}
 private: System::Void textBox_Enter(System::Object^ sender, System::EventArgs^ e) {
 	TextBox^ tb = safe_cast<TextBox^>(sender);

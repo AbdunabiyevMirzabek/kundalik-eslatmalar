@@ -348,12 +348,12 @@ private: System::Void button1_Click(System::Object^ sender, System::EventArgs^ e
 		MessageBox::Show(L"Xatolik yuz berdi: " + ex->Message, L"Xato", MessageBoxButtons::OK, MessageBoxIcon::Error);
 	}
 }
-private: System::Void linkLabel1_LinkClicked(System::Object^ sender, System::Windows::Forms::LinkLabelLinkClickedEventArgs^ e) 
+private: System::Void linkLabel1_LinkClicked(System::Object^ sender, System::Windows::Forms::LinkLabelLinkClickedEventArgs^ e)
 {
-	Login^ form2 = gcnew Login(this);
+	// Login formasini yaratish va joriy formani yashirish
+	Login^ loginForm = gcnew Login();
 	this->Hide();
-	form2->ShowDialog();
-
+	loginForm->Show();
 }
 
 private: System::Void buttonShowPass_Click(System::Object^ sender, System::EventArgs^ e) {
