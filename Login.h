@@ -175,6 +175,7 @@ namespace kundalikeslatmalar {
 			this->Controls->Add(this->panel1);
 			this->Name = L"Login";
 			this->Text = L"Login";
+			this->Load += gcnew System::EventHandler(this, &Login::Login_Load);
 			this->panel1->ResumeLayout(false);
 			this->panel1->PerformLayout();
 			this->ResumeLayout(false);
@@ -204,6 +205,9 @@ private: System::Void textBox_Leave(System::Object^ sender, System::EventArgs^ e
 			tb->Text = L"Parol"; 
 		}
 	}
+}
+private: System::Void Login_Load(System::Object^ sender, System::EventArgs^ e) {
+	//1234567890
 }
 };
 }
