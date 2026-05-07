@@ -31,6 +31,7 @@ namespace kundalikeslatmalar {
 	private: System::Windows::Forms::Label^ label3;
 	private: System::Windows::Forms::Label^ label2;
 	private: System::Windows::Forms::Button^ button1;
+	private: System::Windows::Forms::Button^ button2;
 	public:
 		Form^ form1;
 		Login(Form^ form2)
@@ -74,20 +75,22 @@ namespace kundalikeslatmalar {
 			this->label3 = (gcnew System::Windows::Forms::Label());
 			this->label2 = (gcnew System::Windows::Forms::Label());
 			this->label1 = (gcnew System::Windows::Forms::Label());
+			this->button2 = (gcnew System::Windows::Forms::Button());
 			this->panel1->SuspendLayout();
 			this->SuspendLayout();
 			// 
 			// panel1
 			// 
+			this->panel1->Controls->Add(this->button2);
 			this->panel1->Controls->Add(this->button1);
 			this->panel1->Controls->Add(this->textBox2);
 			this->panel1->Controls->Add(this->textBox1);
 			this->panel1->Controls->Add(this->label3);
 			this->panel1->Controls->Add(this->label2);
 			this->panel1->Controls->Add(this->label1);
-			this->panel1->Location = System::Drawing::Point(233, 106);
+			this->panel1->Location = System::Drawing::Point(262, 119);
 			this->panel1->Name = L"panel1";
-			this->panel1->Size = System::Drawing::Size(221, 259);
+			this->panel1->Size = System::Drawing::Size(249, 291);
 			this->panel1->TabIndex = 0;
 			// 
 			// button1
@@ -99,9 +102,9 @@ namespace kundalikeslatmalar {
 			this->button1->Font = (gcnew System::Drawing::Font(L"Segoe UI", 10.2F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->button1->ForeColor = System::Drawing::Color::White;
-			this->button1->Location = System::Drawing::Point(56, 189);
+			this->button1->Location = System::Drawing::Point(63, 213);
 			this->button1->Name = L"button1";
-			this->button1->Size = System::Drawing::Size(87, 30);
+			this->button1->Size = System::Drawing::Size(98, 34);
 			this->button1->TabIndex = 3;
 			this->button1->Text = L"Kirish";
 			this->button1->UseVisualStyleBackColor = false;
@@ -113,9 +116,9 @@ namespace kundalikeslatmalar {
 			this->textBox2->Cursor = System::Windows::Forms::Cursors::IBeam;
 			this->textBox2->ForeColor = System::Drawing::Color::Gray;
 			this->textBox2->ImeMode = System::Windows::Forms::ImeMode::Disable;
-			this->textBox2->Location = System::Drawing::Point(27, 144);
+			this->textBox2->Location = System::Drawing::Point(30, 162);
 			this->textBox2->Name = L"textBox2";
-			this->textBox2->Size = System::Drawing::Size(156, 22);
+			this->textBox2->Size = System::Drawing::Size(175, 24);
 			this->textBox2->TabIndex = 2;
 			this->textBox2->Text = L"Parol";
 			this->textBox2->Enter += gcnew System::EventHandler(this, &Login::textBox_Enter);
@@ -127,9 +130,9 @@ namespace kundalikeslatmalar {
 			this->textBox1->Cursor = System::Windows::Forms::Cursors::IBeam;
 			this->textBox1->ForeColor = System::Drawing::Color::Gray;
 			this->textBox1->ImeMode = System::Windows::Forms::ImeMode::Disable;
-			this->textBox1->Location = System::Drawing::Point(27, 75);
+			this->textBox1->Location = System::Drawing::Point(30, 84);
 			this->textBox1->Name = L"textBox1";
-			this->textBox1->Size = System::Drawing::Size(156, 22);
+			this->textBox1->Size = System::Drawing::Size(175, 24);
 			this->textBox1->TabIndex = 2;
 			this->textBox1->Text = L"Login";
 			this->textBox1->Enter += gcnew System::EventHandler(this, &Login::textBox_Enter);
@@ -140,7 +143,7 @@ namespace kundalikeslatmalar {
 			this->label3->AutoSize = true;
 			this->label3->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 7.8F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->label3->Location = System::Drawing::Point(24, 115);
+			this->label3->Location = System::Drawing::Point(27, 129);
 			this->label3->Name = L"label3";
 			this->label3->Size = System::Drawing::Size(44, 16);
 			this->label3->TabIndex = 0;
@@ -151,7 +154,7 @@ namespace kundalikeslatmalar {
 			this->label2->AutoSize = true;
 			this->label2->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 7.8F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->label2->Location = System::Drawing::Point(24, 42);
+			this->label2->Location = System::Drawing::Point(27, 47);
 			this->label2->Name = L"label2";
 			this->label2->Size = System::Drawing::Size(45, 16);
 			this->label2->TabIndex = 0;
@@ -162,18 +165,30 @@ namespace kundalikeslatmalar {
 			this->label1->AutoSize = true;
 			this->label1->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 7.8F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->label1->Location = System::Drawing::Point(82, 10);
+			this->label1->Location = System::Drawing::Point(92, 11);
 			this->label1->Name = L"label1";
 			this->label1->Size = System::Drawing::Size(45, 16);
 			this->label1->TabIndex = 0;
 			this->label1->Text = L"Kirish";
 			// 
+			// button2
+			// 
+			this->button2->BackColor = System::Drawing::SystemColors::Highlight;
+			this->button2->Location = System::Drawing::Point(19, 253);
+			this->button2->Name = L"button2";
+			this->button2->Size = System::Drawing::Size(187, 26);
+			this->button2->TabIndex = 4;
+			this->button2->Text = L"Ro\'yxatdan o\'tish";
+			this->button2->UseVisualStyleBackColor = false;
+			// 
 			// Login
 			// 
-			this->AutoScaleDimensions = System::Drawing::SizeF(8, 16);
+			this->AutoScaleDimensions = System::Drawing::SizeF(9, 18);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
-			this->ClientSize = System::Drawing::Size(686, 532);
+			this->ClientSize = System::Drawing::Size(772, 598);
 			this->Controls->Add(this->panel1);
+			this->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 9, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
 			this->Name = L"Login";
 			this->Text = L"Login";
 			this->Load += gcnew System::EventHandler(this, &Login::Login_Load);
