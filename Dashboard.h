@@ -14,6 +14,8 @@ namespace kundalikeslatmalar {
 	private:
 		// Hozirgi ko'rinib turgan oy va yilni saqlash uchun
 		int currentYear;
+
+	private:
 		int currentMonth;
 
 	public:
@@ -87,7 +89,7 @@ namespace kundalikeslatmalar {
 			   // 
 			   // monthCalendar1
 			   // 
-			   this->monthCalendar1->Location = System::Drawing::Point(0, 187);
+			   this->monthCalendar1->Location = System::Drawing::Point(0, 155);
 			   this->monthCalendar1->Name = L"monthCalendar1";
 			   this->monthCalendar1->TabIndex = 2;
 			   // 
@@ -97,7 +99,7 @@ namespace kundalikeslatmalar {
 			   this->flowLayoutPanel1->Controls->Add(this->button1);
 			   this->flowLayoutPanel1->Controls->Add(this->button3);
 			   this->flowLayoutPanel1->Controls->Add(this->menuStrip1);
-			   this->flowLayoutPanel1->Location = System::Drawing::Point(289, 12);
+			   this->flowLayoutPanel1->Location = System::Drawing::Point(298, 95);
 			   this->flowLayoutPanel1->Name = L"flowLayoutPanel1";
 			   this->flowLayoutPanel1->Size = System::Drawing::Size(774, 56);
 			   this->flowLayoutPanel1->TabIndex = 3;
@@ -139,7 +141,7 @@ namespace kundalikeslatmalar {
 			   this->menuStrip1->Items->AddRange(gcnew cli::array< System::Windows::Forms::ToolStripItem^  >(1) { this->menuToolStripMenuItem });
 			   this->menuStrip1->Location = System::Drawing::Point(198, 0);
 			   this->menuStrip1->Name = L"menuStrip1";
-			   this->menuStrip1->Size = System::Drawing::Size(68, 28);
+			   this->menuStrip1->Size = System::Drawing::Size(70, 30);
 			   this->menuStrip1->TabIndex = 1;
 			   this->menuStrip1->Text = L"menuStrip1";
 			   // 
@@ -156,25 +158,25 @@ namespace kundalikeslatmalar {
 			   // dayToolStripMenuItem
 			   // 
 			   this->dayToolStripMenuItem->Name = L"dayToolStripMenuItem";
-			   this->dayToolStripMenuItem->Size = System::Drawing::Size(135, 26);
+			   this->dayToolStripMenuItem->Size = System::Drawing::Size(224, 26);
 			   this->dayToolStripMenuItem->Text = L"Day";
 			   // 
 			   // weekToolStripMenuItem
 			   // 
 			   this->weekToolStripMenuItem->Name = L"weekToolStripMenuItem";
-			   this->weekToolStripMenuItem->Size = System::Drawing::Size(135, 26);
+			   this->weekToolStripMenuItem->Size = System::Drawing::Size(224, 26);
 			   this->weekToolStripMenuItem->Text = L"week";
 			   // 
 			   // monthToolStripMenuItem
 			   // 
 			   this->monthToolStripMenuItem->Name = L"monthToolStripMenuItem";
-			   this->monthToolStripMenuItem->Size = System::Drawing::Size(135, 26);
+			   this->monthToolStripMenuItem->Size = System::Drawing::Size(224, 26);
 			   this->monthToolStripMenuItem->Text = L"month";
 			   // 
 			   // yearToolStripMenuItem
 			   // 
 			   this->yearToolStripMenuItem->Name = L"yearToolStripMenuItem";
-			   this->yearToolStripMenuItem->Size = System::Drawing::Size(135, 26);
+			   this->yearToolStripMenuItem->Size = System::Drawing::Size(224, 26);
 			   this->yearToolStripMenuItem->Text = L"year";
 			   // 
 			   // panel1
@@ -182,9 +184,9 @@ namespace kundalikeslatmalar {
 			   this->panel1->Controls->Add(this->button4);
 			   this->panel1->Controls->Add(this->checkedListBox1);
 			   this->panel1->Controls->Add(this->monthCalendar1);
-			   this->panel1->Location = System::Drawing::Point(12, 27);
+			   this->panel1->Location = System::Drawing::Point(21, 98);
 			   this->panel1->Name = L"panel1";
-			   this->panel1->Size = System::Drawing::Size(271, 608);
+			   this->panel1->Size = System::Drawing::Size(274, 591);
 			   this->panel1->TabIndex = 4;
 			   // 
 			   // button4
@@ -224,7 +226,7 @@ namespace kundalikeslatmalar {
 				   14.28571F)));
 			   this->tableLayoutPanel1->ColumnStyles->Add((gcnew System::Windows::Forms::ColumnStyle(System::Windows::Forms::SizeType::Percent,
 				   14.28571F)));
-			   this->tableLayoutPanel1->Location = System::Drawing::Point(315, 74);
+			   this->tableLayoutPanel1->Location = System::Drawing::Point(324, 157);
 			   this->tableLayoutPanel1->Name = L"tableLayoutPanel1";
 			   this->tableLayoutPanel1->RowCount = 6;
 			   this->tableLayoutPanel1->RowStyles->Add((gcnew System::Windows::Forms::RowStyle(System::Windows::Forms::SizeType::Percent, 16.6F)));
@@ -233,14 +235,14 @@ namespace kundalikeslatmalar {
 			   this->tableLayoutPanel1->RowStyles->Add((gcnew System::Windows::Forms::RowStyle(System::Windows::Forms::SizeType::Percent, 16.6F)));
 			   this->tableLayoutPanel1->RowStyles->Add((gcnew System::Windows::Forms::RowStyle(System::Windows::Forms::SizeType::Percent, 16.6F)));
 			   this->tableLayoutPanel1->RowStyles->Add((gcnew System::Windows::Forms::RowStyle(System::Windows::Forms::SizeType::Percent, 16.6F)));
-			   this->tableLayoutPanel1->Size = System::Drawing::Size(650, 500);
+			   this->tableLayoutPanel1->Size = System::Drawing::Size(650, 471);
 			   this->tableLayoutPanel1->TabIndex = 5;
 			   // 
 			   // Dashboard
 			   // 
 			   this->AutoScaleDimensions = System::Drawing::SizeF(8, 16);
 			   this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
-			   this->ClientSize = System::Drawing::Size(1000, 650);
+			   this->ClientSize = System::Drawing::Size(1055, 716);
 			   this->Controls->Add(this->tableLayoutPanel1);
 			   this->Controls->Add(this->panel1);
 			   this->Controls->Add(this->flowLayoutPanel1);
@@ -322,5 +324,6 @@ namespace kundalikeslatmalar {
 			currentMonth = DateTime::Now.Month;
 			FillCalendar(currentYear, currentMonth);
 		}
-	};
+
+};
 }

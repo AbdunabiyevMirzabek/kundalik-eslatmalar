@@ -59,7 +59,7 @@ namespace kundalikeslatmalar {
 		/// <summary>
 		/// Required designer variable.
 		/// </summary>
-		System::ComponentModel::Container ^components;
+		System::ComponentModel::Container^ components;
 
 #pragma region Windows Form Designer generated code
 		/// <summary>
@@ -69,6 +69,7 @@ namespace kundalikeslatmalar {
 		void InitializeComponent(void)
 		{
 			this->panel1 = (gcnew System::Windows::Forms::Panel());
+			this->button2 = (gcnew System::Windows::Forms::Button());
 			this->button1 = (gcnew System::Windows::Forms::Button());
 			this->textBox2 = (gcnew System::Windows::Forms::TextBox());
 			this->textBox1 = (gcnew System::Windows::Forms::TextBox());
@@ -92,6 +93,17 @@ namespace kundalikeslatmalar {
 			this->panel1->Name = L"panel1";
 			this->panel1->Size = System::Drawing::Size(249, 291);
 			this->panel1->TabIndex = 0;
+			// 
+			// button2
+			// 
+			this->button2->BackColor = System::Drawing::SystemColors::Highlight;
+			this->button2->Location = System::Drawing::Point(30, 253);
+			this->button2->Name = L"button2";
+			this->button2->Size = System::Drawing::Size(187, 26);
+			this->button2->TabIndex = 4;
+			this->button2->Text = L"Ro\'yxatdan o\'tish";
+			this->button2->UseVisualStyleBackColor = false;
+			this->button2->Click += gcnew System::EventHandler(this, &Login::button2_Click);
 			// 
 			// button1
 			// 
@@ -180,9 +192,7 @@ namespace kundalikeslatmalar {
 			this->button2->TabIndex = 4;
 			this->button2->Text = L"Ro\'yxatdan o\'tish";
 			this->button2->UseVisualStyleBackColor = false;
-			// 
-			// Login
-			// 
+
 			this->AutoScaleDimensions = System::Drawing::SizeF(9, 18);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			this->ClientSize = System::Drawing::Size(772, 598);
@@ -231,27 +241,41 @@ namespace kundalikeslatmalar {
 			MessageBox::Show(L"Xatolik: " + ex->Message);
 		}
 	}
-private: System::Void textBox_Enter(System::Object^ sender, System::EventArgs^ e) {
-	TextBox^ tb = safe_cast<TextBox^>(sender);
-	if (tb->ForeColor == System::Drawing::Color::Gray) {
-		tb->Text = L"";
-		tb->ForeColor = System::Drawing::Color::Black;
-		this->textBox2->UseSystemPasswordChar = true;
-	}
-}
-private: System::Void textBox_Leave(System::Object^ sender, System::EventArgs^ e) {
-	TextBox^ tb = safe_cast<TextBox^>(sender);
-	if (String::IsNullOrWhiteSpace(tb->Text)) {
-		tb->ForeColor = System::Drawing::Color::Gray;
-		if (tb == this->textBox1) tb->Text = L"Login";
-		else if (tb == this->textBox2) { 
-			tb->UseSystemPasswordChar = false; 
-			tb->Text = L"Parol"; 
+	private: System::Void textBox_Enter(System::Object^ sender, System::EventArgs^ e) {
+		TextBox^ tb = safe_cast<TextBox^>(sender);
+		if (tb->ForeColor == System::Drawing::Color::Gray) {
+			tb->Text = L"";
+			tb->ForeColor = System::Drawing::Color::Black;
+			this->textBox2->UseSystemPasswordChar = true;
 		}
 	}
-}
-private: System::Void Login_Load(System::Object^ sender, System::EventArgs^ e) {
-	//1234567890
-}
+	private: System::Void textBox_Leave(System::Object^ sender, System::EventArgs^ e) {
+		TextBox^ tb = safe_cast<TextBox^>(sender);
+		if (String::IsNullOrWhiteSpace(tb->Text)) {
+			tb->ForeColor = System::Drawing::Color::Gray;
+			if (tb == this->textBox1) tb->Text = L"Login";
+			else if (tb == this->textBox2) {
+				tb->UseSystemPasswordChar = false;
+				tb->Text = L"Parol";
+			}
+		}
+	}
+	private: System::Void Login_Load(System::Object^ sender, System::EventArgs^ e) {
+		//1234567890
+	}
+	private: System::Void button2_Click(System::Object^ sender, System::EventArgs^ e) 
+	{
+		if (this->form1 != nullptr) {
+			this->Hide();           // Login oynasini yashiramiz
+			this->form1->Show();    // Ro'yxatdan o'tish oynasini qayta ko'rsatamiz
+		}
+		else {
+			// Mabodo xatolik bo'lsa (form1 bo'sh bo'lsa), yangidan yaratib ochish:
+			// Bu qism shunchaki ehtiyot chorasi
+			MessageBox::Show(L"Orqaga qaytishda xatolik! Oyna manzili topilmadi.");
+		}
+	
+	}
+	
 };
 }
